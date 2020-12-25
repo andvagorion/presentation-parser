@@ -20,16 +20,16 @@
 - First half
 - Break?
 - Continue
-- GOTO
+- GOTO Structure
 
 ~~~
 
 # Structure
 
-1 Item 1
-1 Item 2
-1 Item 3
-1 Item 5
+1 Item
+1 Another item
+1 More items?
+1 Aaaand another item
 
 ~~~
 
@@ -43,39 +43,35 @@ Lorem ipsum igitur
 - Dolores sits amidst the trees.
 - And thinks about nothing.
 
-||||||||
-
 $$$ java
 $ /* good code */
 $ String greeting = "hello";
 $ String audience = "world";
 $ return String.format("%s %s!", greeting, audience);
 
-||||||||
-
 $$$ java
 $ /* bad code */
 $ IGreetingFactory factory = GreetingFactory.getInstance();
-$ IGreeting greeting = factory.createGreeting(GreetingType.CASUAL);
-$ return GreetingFormat.format(greeting, Audience.WORLD);
-
-|||||||| end
+$ IGreeting greeting = factory.createGreeting(GreetingType.CASUAL, Audience.WORLD);
+$ return GreetingFormat.format(greeting);
 
 ~~~
 
 # Less important slide
 
-- abstract, but not too abstract
--- sometimes very direct
--- othertimes not so much
-- hello, i am trapped in a greeting factory
-- dolores is with me
+- Abstract, but not too abstract
+-- Sometimes very direct
+-- Other times not so much
+- Hello, I am trapped in a greeting factory
+- Dolores is with me
 
 ~~~
 
 ! Break?
 
 ~~~
+
+||||||||
 
 # Very important topic
 
@@ -84,12 +80,16 @@ $ return GreetingFormat.format(greeting, Audience.WORLD);
 - Lean
 - Buzzwords
 
+||||||||
+
 # Other topic
 
 - I have a great idea for a start-up.
 - It will run in The Cloud.
 - It will have a public API to interface with.
 - I think it will be a success story.
+
+|||||||| end
 
 ~~~
 
@@ -113,7 +113,10 @@ $ return GreetingFormat.format(greeting, Audience.WORLD);
 
 # Interlude
 
-Cascading selectors
+||||||||
+
+##Cascading selectors
+
 $$$ css
 $ tag.class
 $ tag#id
@@ -121,7 +124,34 @@ $ tag tag .class
 $ tag.class [tag] [tag][class]
 
 But be aware:
-- it's cascading somehow
+- It's cascading somehow.
+
+## Caveat: The Cloud
+- Is it of a cascading nature as well?
+- Let's discuss.
+
+||||||||
+
+## Content
+- There's a lot of it on this page.
+- Almost as much content as in my Cloud App.
+- Subscribe now.
+
+## More Content
+- A lot of content for one slide.
+- *slaps presentation*
+- This bad boy can fit so much of it on one slide.
+
+## Content
+- Just a little more.
+- Slide is almost full.
+- A tiny amount more perhaps.
+
+See, the text should get smaller to show everything on one page.
+
+That's the whole point of this slide.
+
+|||||||| end
 
 ~~~
 
@@ -161,7 +191,7 @@ $ .Fz-s { font-size: smaller; }
 
 # Many thanks to...
 
-- my mom
+- My parents
 - The Cloud
 
 ~~~

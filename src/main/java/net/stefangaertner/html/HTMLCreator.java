@@ -18,7 +18,6 @@ import net.stefangaertner.html.element.meta.Root;
 import net.stefangaertner.html.element.meta.Script;
 import net.stefangaertner.html.element.meta.Stylesheet;
 import net.stefangaertner.parser.NavigationItem;
-import net.stefangaertner.util.FileUtils;
 
 public class HTMLCreator {
 
@@ -32,9 +31,7 @@ public class HTMLCreator {
 
 		body = addFooter(body, headings);
 
-		Path outFile = FileUtils.evaluatePath(path, "html");
-
-		try (HTMLWriter writer = HTMLWriter.getInstance(outFile)) {
+		try (HTMLWriter writer = HTMLWriter.getInstance(path)) {
 
 			writeTree(writer, body.getRoot());
 

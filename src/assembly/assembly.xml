@@ -19,16 +19,13 @@
 		</fileSet>
 
 		<fileSet>
-			<directory>${project.basedir}/src/assembly/resources/scripts</directory>
+			<directory>${project.basedir}/src/assembly/scripts</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 
 	</fileSets>
 
 	<files>
-		<file>
-			<source>${project.build.directory}/res.zip</source>
-		</file>
 		<file>
 			<source>${project.build.directory}/pres-parser-jar-with-dependencies.jar</source>
 			<destName>pres-parser.jar</destName>

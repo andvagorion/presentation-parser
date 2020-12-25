@@ -18,7 +18,7 @@ public class Main {
 			System.err.println("Proper Usage is: pres-parser [path/to/file.txt] [path/to/presentation.html]");
 			System.exit(0);
 		}
-		
+
 		Path in = FileUtils.toAbsolutePath(args[0]);
 		Path out = FileUtils.toAbsolutePath(args[1]);
 
@@ -32,13 +32,16 @@ public class Main {
 			Parser parser = new Parser(in);
 
 			HTMLElement root = parser.parseFileToTree();
-			
-			HTMLCreator.createSheets(out, root, parser.getHeadings());
-			
-			ResourceHandler.unzip(out.getParent());
+
+			Path outFile = FileUtils.evaluatePath(out, "html");
+			HTMLCreator.createSheets(outFile, root, parser.getHeadings());
+
+			Path outDir = outFile.getParent();
+			ResourceHandler.copyResources(outDir);
 
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+			e.printStackTrace();
 			System.exit(0);
 		}
 	}

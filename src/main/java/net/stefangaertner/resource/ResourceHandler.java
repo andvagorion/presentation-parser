@@ -1,49 +1,43 @@
 package net.stefangaertner.resource;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.FileUtils;
 
 public class ResourceHandler {
 
-	public static void unzip(Path destinationFolder) throws IOException {
+	public static void copyResources(Path destinationFolder) throws IOException {
 
-		Path zip = Paths.get(".").toAbsolutePath().normalize().resolve("res.zip");
+		Path out = destinationFolder.resolve("res");
+		System.out.println(String.format("Creating directory: %s", out));
+		Files.createDirectories(out);
+
+		String[] resources = new String[] { "css/atom-one-light.css", "css/styles.css", "img/spinner.gif",
+				"js/highlight.pack.js", "js/presentation.js" };
+
+		System.out.println("Copying resources.");
+		for (String resource : resources) {
+			copy(out, resource);
+		}
+
+	}
+
+	private static void copy(Path out, String resource) throws IOException {
+
+		Path outPath = out.resolve(resource);
+		String resourcePath = "/assets/" + resource;
 		
-		destinationFolder = destinationFolder.resolve("res");
-		System.out.println(String.format("Creating directory: %s", destinationFolder));
-		Files.createDirectories(destinationFolder);
+		System.out.println(String.format("Copying %s -> %s", resourcePath, outPath));
 
-		try (ZipFile zipFile = new ZipFile(zip.toFile(), ZipFile.OPEN_READ, StandardCharsets.UTF_8)) {
-
-			Enumeration<? extends ZipEntry> entries = zipFile.entries();
-
-			while (entries.hasMoreElements()) {
-
-				ZipEntry entry = entries.nextElement();
-				Path entryPath = destinationFolder.resolve(entry.getName());
-
-				if (entry.isDirectory()) {
-					Files.createDirectories(entryPath);
-				} else {
-					Files.createDirectories(entryPath.getParent());
-					try (InputStream in = zipFile.getInputStream(entry)) {
-						try (OutputStream out = new FileOutputStream(entryPath.toFile())) {
-							IOUtils.copy(in, out);
-						}
-					}
-				}
-			}
+		try (InputStream stream = ResourceHandler.class.getResourceAsStream(resourcePath)) {
+			Files.createDirectories(outPath.getParent());
+			Files.copy(stream, outPath);
+		} catch (FileAlreadyExistsException e) {
+			System.out.println(String.format("%s already exists. Aborting operation.", outPath));
 		}
 	}
 

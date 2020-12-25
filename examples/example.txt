@@ -1,0 +1,171 @@
+
+! Just Another Presentation Example
+
+~~~
+
+# What is this about?
+- Best Practices
+- Worst Practices
+- Witchcraft
+
+# What is this not about?
+- Watching paint dry
+- Pastry recipes
+- Shrubbery in general
+
+~~~
+
+# Agenda
+- Structure
+- First half
+- Break?
+- Continue
+- GOTO
+
+~~~
+
+# Structure
+
+1 Item 1
+1 Item 2
+1 Item 3
+1 Item 5
+
+~~~
+
+! First half
+
+~~~
+
+# Important slide
+
+Lorem ipsum igitur
+- Dolores sits amidst the trees.
+- And thinks about nothing.
+
+||||||||
+
+$$$ java
+$ /* good code */
+$ String greeting = "hello";
+$ String audience = "world";
+$ return String.format("%s %s!", greeting, audience);
+
+||||||||
+
+$$$ java
+$ /* bad code */
+$ IGreetingFactory factory = GreetingFactory.getInstance();
+$ IGreeting greeting = factory.createGreeting(GreetingType.CASUAL);
+$ return GreetingFormat.format(greeting, Audience.WORLD);
+
+|||||||| end
+
+~~~
+
+# Less important slide
+
+- abstract, but not too abstract
+-- sometimes very direct
+-- othertimes not so much
+- hello, i am trapped in a greeting factory
+- dolores is with me
+
+~~~
+
+! Break?
+
+~~~
+
+# Very important topic
+
+- Agile
+- Scrum
+- Lean
+- Buzzwords
+
+# Other topic
+
+- I have a great idea for a start-up.
+- It will run in The Cloud.
+- It will have a public API to interface with.
+- I think it will be a success story.
+
+~~~
+
+! Continue
+
+~~~
+
+# Heading 1
+
+## Heading 2
+
+- Keep up to date with my Cloud App.
+- Subscribe to my Cloud App.
+
+## Heading 2 (again)
+
+- Keep up to date with my Cloud App.
+- Hit the notification bell on my Cloud App.
+
+~~~
+
+# Interlude
+
+Cascading selectors
+$$$ css
+$ tag.class
+$ tag#id
+$ tag tag .class
+$ tag.class [tag] [tag][class]
+
+But be aware:
+- it's cascading somehow
+
+~~~
+
+# Alternative: Atomic class styles
+
+||||||||
+
+$$$ html
+$ <div class="Bfc M-10">
+$   <a class="Fl-start Mend-10" href="http://twitter.com/xyz">
+$	  <img src="xyz.jpg" alt="me" />
+$   </a>
+$	<div class="Bfc Fz-s">@xyz 14 minutes ago</div>
+$ </div>
+
+||||||||
+
+$$$ css
+$ .Bfc { overflow: hidden; zoom: 1; }
+$ .M-10 { margin: 10px; }
+$ .Fl-start { float: left; }
+$ .Mend-10 { margin-right: 10px; }
+$ .Fz-s { font-size: smaller; }
+
+|||||||| end
+
+- quick parsing
+- reusable, portable
+- granular
+- but quite complex
+
+~~~
+
+! GOTO slide 1
+
+~~~
+
+# Many thanks to...
+
+- my mom
+- The Cloud
+
+~~~
+
+# Sources
+
+- none
